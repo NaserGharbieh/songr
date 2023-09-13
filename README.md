@@ -6,5 +6,5 @@
 - ### /capitalize/smalltext
 - Which returns an html page with any text in UPPERCASE.
 - ### /albums
-- Which returns an html page with 3 Album objects with the album info and cover.
+- Which returns an html page with a **Form to add any album you want**.
 
