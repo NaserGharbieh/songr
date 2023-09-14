@@ -1,10 +1,8 @@
 package com.NaserGharbieh.songr.models;
 
 import java.net.URL;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.List;
+import javax.persistence.*;
 
 @Entity
 public class Album {
@@ -17,6 +15,8 @@ public class Album {
     private  int songCount;
     private int length ;
     private  String imageUrl ;
+    @OneToMany(mappedBy = "songAtAlbum",cascade = CascadeType.ALL)
+    private List<Song>Songs;
     public Album(){}
 
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
@@ -72,5 +72,13 @@ public class Album {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public List<Song> getSongs() {
+        return Songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        Songs = songs;
     }
 }
