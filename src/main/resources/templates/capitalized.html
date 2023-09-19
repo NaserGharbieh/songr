@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/navbar.css">
+
 </head>
 <body>
+<nav>
+    <ul class="navbar-list">
+        <li><a class="navbar-link" th:href="@{/}">Songer</a></li>
+        <li><a class="navbar-link" th:href="@{/albums}">Albums</a></li>
+        <li><a class="navbar-link" th:href="@{/songs}">Songs</a></li>
+    </ul>
+</nav>
 <div>
     <h1 th:text="${text}"></h1>
     </div>

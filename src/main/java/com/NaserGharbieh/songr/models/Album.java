@@ -1,5 +1,7 @@
 package com.NaserGharbieh.songr.models;
 
+import com.NaserGharbieh.songr.exceptions.AlbumNotFoundException;
+
 import java.net.URL;
 import java.util.List;
 import javax.persistence.*;
@@ -10,14 +12,16 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private  String title;
-    private  String artist ;
-    private  int songCount;
-    private int length ;
-    private  String imageUrl ;
-    @OneToMany(mappedBy = "songAtAlbum",cascade = CascadeType.ALL)
-    private List<Song>Songs;
-    public Album(){}
+    private String title;
+    private String artist;
+    private int songCount;
+    private int length;
+    private String imageUrl;
+    @OneToMany(mappedBy = "songAtAlbum", cascade = CascadeType.ALL)
+    private List<Song> Songs;
+
+    public Album() {
+    }
 
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
@@ -26,6 +30,7 @@ public class Album {
         this.length = length;
         this.imageUrl = imageUrl;
     }
+
     public Long getId() {
         return id;
     }
@@ -81,4 +86,5 @@ public class Album {
     public void setSongs(List<Song> songs) {
         Songs = songs;
     }
+
 }

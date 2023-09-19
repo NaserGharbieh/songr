@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Songr Spring MVC App</title>
   <link rel="stylesheet" href="/home.css">
+  <link rel="stylesheet" href="/navbar.css">
+
 </head>
 <body>
+<nav>
+  <ul class="navbar-list">
+    <li><a class="navbar-link" th:href="@{/}">Songer</a></li>
+    <li><a class="navbar-link" th:href="@{/albums}">Albums</a></li>
+    <li><a class="navbar-link" th:href="@{/songs}">Songs</a></li>
+  </ul>
+</nav>
 <div class="home-container">
   <h1>Songr Spring MVC App</h1>
   <p>This is a project for applying what I learned in Spring MVC.</p>
@@ -13,7 +22,9 @@
   <ul>
     <li><a href="/hello">/hello</a> - Returns an HTML page with the text: "hello world"</li>
     <li><a href="/capitalize/smalltext">/capitalize/smalltext</a> - Returns an HTML page with any text in UPPERCASE.</li>
-    <li><a href="/albums">/albums</a> - - Which returns an html page with a Form to add any album you want.</li>
+    <li><a href="/albums">/albums</a> -  Which returns a html page with a Form to add <b>any album you want.</b></li><br>
+    <li><a href="/songs">/songs</a> -  Which returns a html page with a Form to add <b>any Song you want.</b> </li>
+    <li><a href="/album/1">/album/{albumId}</a> -  Which returns a html page with the album and the songs added to it </li>
   </ul>
 </div>
 </body>

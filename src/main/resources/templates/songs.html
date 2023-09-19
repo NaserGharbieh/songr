@@ -2,12 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Albums</title>
-  <link rel="stylesheet" href="/style.css">
+  <title>Songs</title>
+  <link rel="stylesheet" href="/songs.css">
+  <link rel="stylesheet" href="/navbar.css">
 
 </head>
 <body>
-
+<nav>
+  <ul class="navbar-list">
+    <li><a class="navbar-link" th:href="@{/}">Songer</a></li>
+    <li><a class="navbar-link" th:href="@{/albums}">Albums</a></li>
+    <li><a class="navbar-link" th:href="@{/songs}">Songs</a></li>
+  </ul>
+</nav>
 <h1>Songs</h1>
 <form action="/add-song" method="post">
 
@@ -18,19 +25,22 @@
   <input type="number" name="length" id="length">
   <label for="trackNumber"> Song trackNumber </label>
   <input type="number" name="trackNumber" id="trackNumber">
-  <label for="songAtAlbum">Album name</label>
-  <input type="text" name="songAtAlbum" id="songAtAlbum">
+  <label for="albumTitle">Album title</label>
+  <input type="text" name="albumTitle" id="albumTitle">
 
   <input type="submit" value="Add song">
 </form>
 
-<div th:each="song : ${songs}" class="album-card">
-  <div class="album-info">
+<!-- Song listing with card styles -->
+<div class="song-card-container">
+<div th:each="song : ${songs}" class="song-card">
+  <div class="song-info">
     <h3 th:text="${song.title}"></h3>
-    <p><strong>Album</strong> <span th:text="${song.songAtAlbum}"></span></p>
+    <p><strong>Album</strong> <a th:href="@{/album/{albumId}(albumId=${song.songAtAlbum.id})}"><span th:text="${song.songAtAlbum.title}"></span></a></p>
     <p><strong>Song track Number:</strong> <span th:text="${song.trackNumber}"></span></p>
     <p><strong>Length (s):</strong> <span th:text="${song.length}"></span></p>
   </div>
+</div>
 </div>
 
 </body>

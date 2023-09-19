@@ -1,6 +1,12 @@
-/* style.css */
+/* songs.css */
 
 /* Container styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -12,61 +18,18 @@ body {
     margin: 0 auto;
 }
 
-/* Album card styles */
-.album-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    height: 200px; /* Set a fixed height for all cards */
-}
-
-.album-card:hover {
-    transform: scale(1.05);
-}
-
-.album-image img {
-    max-width: 100%; /* Make the image width 100% of the card */
-    height: 100%; /* Make the image height 100% of the card height */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire card */
-}
-
-.album-info {
-    flex: 1;
-    padding: 20px;
-    text-align: left;
-}
-
-.album-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.album-info p {
-    margin: 5px 0;
-    color: #777;
-}
-
-/* Header styles */
 h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
-
-    /* Form styles */
+ /* Form styles */
     form {
         background-color: #ffffff;
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
     }
 
     legend {
@@ -104,6 +67,42 @@ h1 {
     input[type="submit"]:hover {
         background-color: #2980b9;
     }
+
+
+/* Song card styles */
+.song-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.song-card {
+    flex: 0 1 calc(33.33% - 20px); /* Three songs in a row with spacing */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-right: 20px; /* Spacing between cards */
+}
+
+.song-info {
+    padding: 10px;
+    text-align: left;
+}
+
+.song-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.song-info p {
+    margin: 5px 0;
+    color: #777;
+}
 /* Style the navigation bar list */
 .navbar-list {
     list-style-type: none;
@@ -121,15 +120,4 @@ h1 {
     text-decoration: underline;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .album-card {
-        flex-direction: column;
-        height: auto; /* Reset height for smaller screens */
-    }
 
-    .album-info {
-        text-align: center;
-    }
-
-}
